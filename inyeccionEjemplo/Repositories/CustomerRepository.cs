@@ -1,24 +1,26 @@
 ﻿using inyeccionEjemplo.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace inyeccionEjemplo.Services
 {
-    public class CustomerRepository
-    {
-        private MySQLConnection _connection;
+    public class CustomerRepository : IRepository
+    { 
+        private IDbConnection _connection;
         
-        public CustomerRepository()
+        public CustomerRepository(IDbConnection connection)
         {
-            _connection = new MySQLConnection();
+            _connection = connection;
         }
 
         public List<Customer> GetCustomers()
         {
             if (_connection.GetType() == typeof(MySQLConnection)) Console.WriteLine("Get Customers from MySQL");
+            else if (_connection.GetType() == typeof(OracleConnection)) Console.WriteLine("Get Customers from Oracle");
 
             return new List<Customer>
             {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace inyeccionEjemplo.Services
 {
-    public class EmailService : ISender
+    public class SMSService : ISender
     {
         public void Send(Customer customer, string message)
         {
-            Console.WriteLine($"Message sent to {customer.name} by email");
+            Console.WriteLine($"Message sent to {customer.name} by sms");
         }
     }
 }

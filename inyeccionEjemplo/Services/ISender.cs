@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace inyeccionEjemplo.Repositories
+namespace inyeccionEjemplo.Services
 {
-    public class MySQLConnection : IDbConnection
+    public interface ISender
     {
+        void Send(Customer customer, string message);
     }
 }

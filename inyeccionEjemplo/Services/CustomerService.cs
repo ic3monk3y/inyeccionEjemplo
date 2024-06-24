@@ -1,4 +1,5 @@
-﻿using System;
+﻿using inyeccionEjemplo.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace inyeccionEjemplo.Services
 {
     public class CustomerService
     {
-        private CustomerRepository _repository;
+        private IRepository _repository;
 
-        public CustomerService()
+        public CustomerService(IRepository repository)
         {
-            _repository = new CustomerRepository();
+            _repository = repository;
         }
 
         public List<Customer> GetCustomers()

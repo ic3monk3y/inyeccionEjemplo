@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace inyeccionEjemplo.Repositories
 {
-    public class MySQLConnection : IDbConnection
+    public interface IRepository
     {
+        List<Customer> GetCustomers();
     }
 }
