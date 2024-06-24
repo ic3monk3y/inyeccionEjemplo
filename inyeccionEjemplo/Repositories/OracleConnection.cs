@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace inyeccionEjemplo.Repositories
 {
-    public class MySQLConnection : IDbConnection
+    internal class OracleConnection :IDbConnection
     {
     }
 }

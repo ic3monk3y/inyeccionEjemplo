@@ -1,4 +1,5 @@
-﻿using inyeccionEjemplo.Services;
+﻿using inyeccionEjemplo.Repositories;
+using inyeccionEjemplo.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,17 @@ namespace inyeccionEjemplo
         static void Main(string[] args)
         {
 
-            var customerService = new CustomerService();
-            var communicationService = new CommunicationService();
+            //dependencias
+            var connection = new MySQLConnection();
+            /*var connection = new OracleConnection();*/
+
+            var repository = new CustomerRepository(connection);
+
+            var sender = new EmailService();
+            /*var sender = new SMSService();*/
+
+            var customerService = new CustomerService(repository);
+            var communicationService = new CommunicationService(sender);
 
             var customers = customerService.GetCustomers();
 
