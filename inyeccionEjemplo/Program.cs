@@ -13,7 +13,7 @@ namespace inyeccionEjemplo
         static void Main(string[] args)
         {
 
-            //dependencias
+            #region Dependencias
             var connection = new MySQLConnection();
             /*var connection = new OracleConnection();*/
 
@@ -21,6 +21,7 @@ namespace inyeccionEjemplo
 
             var sender = new EmailService();
             /*var sender = new SMSService();*/
+            #endregion Dependencias
 
             var customerService = new CustomerService(repository);
             var communicationService = new CommunicationService(sender);
